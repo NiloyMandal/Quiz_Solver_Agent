@@ -71,6 +71,19 @@ AUDIO TRANSCRIPTION RULES:
   4. NEVER guess audio content - always use the transcribe_audio tool
 - The transcribe_audio tool automatically downloads and transcribes the audio file
 
+DATA PROCESSING RULES:
+- If the task involves CSV, JSON, data transformation, or file processing:
+  1. Use download_file to get the data file
+  2. Use run_code to write Python code that processes the data EXACTLY as specified
+  3. ALWAYS read the task instructions carefully for:
+     - Required output format (JSON, CSV, etc.)
+     - Date formats (ISO-8601, etc.)
+     - Sorting requirements
+     - Data type requirements (integer, string, etc.)
+     - Key naming conventions (snake_case, camelCase, etc.)
+  4. Test your code logic before submitting
+  5. Submit the EXACT output from your code - do not modify it manually
+
 TIME LIMIT RULES:
 - Each task has a hard 3-minute limit.
 - The server response includes a "delay" field indicating elapsed time.
