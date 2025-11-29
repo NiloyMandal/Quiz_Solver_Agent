@@ -1,0 +1,7 @@
+curl -X POST https://niloymondal-quiz-solver-agent.hf.space/solve/
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "url": "https://tds-llm-analysis.s-anand.net/project2"
+  }'

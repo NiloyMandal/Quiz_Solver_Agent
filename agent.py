@@ -2,7 +2,7 @@ from langgraph.graph import StateGraph, END, START
 from langchain_core.rate_limiters import InMemoryRateLimiter
 from langgraph.prebuilt import ToolNode
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from tools import get_rendered_html, download_file, post_request, run_code, add_dependencies
+from tools import get_rendered_html, download_file, post_request, run_code, add_dependencies, transcribe_audio
 from typing import TypedDict, Annotated, List, Any
 from langchain.chat_models import init_chat_model
 from langgraph.graph.message import add_messages
@@ -20,7 +20,7 @@ class AgentState(TypedDict):
     messages: Annotated[List, add_messages]
 
 
-TOOLS = [run_code, get_rendered_html, download_file, post_request, add_dependencies]
+TOOLS = [run_code, get_rendered_html, download_file, post_request, add_dependencies, transcribe_audio]
 
 
 # -------------------------------------------------
@@ -62,6 +62,14 @@ GENERAL RULES:
 - NEVER re-submit unless the server explicitly allows or it's within the 3-minute limit.
 - ALWAYS inspect the server response before deciding what to do next.
 - ALWAYS use the tools provided to fetch, scrape, download, render HTML, or send requests.
+
+AUDIO TRANSCRIPTION RULES:
+- If the task mentions "audio", "transcribe", "spoken phrase", or "passphrase":
+  1. Look for an audio file link on the page (usually .mp3, .wav, .m4a, .flac)
+  2. Use the transcribe_audio tool with the audio file URL
+  3. Submit the transcribed text EXACTLY as transcribed
+  4. NEVER guess audio content - always use the transcribe_audio tool
+- The transcribe_audio tool automatically downloads and transcribes the audio file
 
 TIME LIMIT RULES:
 - Each task has a hard 3-minute limit.
