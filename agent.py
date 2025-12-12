@@ -26,23 +26,18 @@ TOOLS = [run_code, get_rendered_html, download_file, post_request, add_dependenc
 
 
 # -------------------------------------------------
-# AI PIPE LLM (Using Gemini via OpenRouter)
+# AI PIPE LLM (Using GPT-4o-mini via OpenRouter)
 # -------------------------------------------------
-rate_limiter = InMemoryRateLimiter(
-    requests_per_second=9/60,  
-    check_every_n_seconds=1,  
-    max_bucket_size=9  
-)
+# Note: Rate limiting is handled by AI Pipe, no need for local rate limiter
 
-# Use AI Pipe with OpenRouter for Gemini
-# Using a stable, non-rate-limited model
+# Use AI Pipe with OpenRouter
 llm = ChatOpenAI(
     model="openai/gpt-4o-mini",
     base_url="https://aipipe.org/openrouter/v1",
     api_key=AI_PIPE_TOKEN,
     temperature=0.7,
-    max_retries=3,
-    rate_limiter=rate_limiter
+    max_retries=2,
+    timeout=60
 ).bind_tools(TOOLS)   
 
 
