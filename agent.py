@@ -81,12 +81,18 @@ DATA PROCESSING RULES:
   2. Use run_code to write Python code that processes the data EXACTLY as specified
   3. ALWAYS read the task instructions carefully for:
      - Required output format (JSON, CSV, etc.)
-     - Date formats (ISO-8601, etc.)
-     - Sorting requirements
+     - Date formats (ISO-8601 means YYYY-MM-DD for dates without time, or YYYY-MM-DDTHH:MM:SS with time)
+     - Sorting requirements (sort by which field, ascending/descending)
      - Data type requirements (integer, string, etc.)
      - Key naming conventions (snake_case, camelCase, etc.)
-  4. Test your code logic before submitting
-  5. Submit the EXACT output from your code - do not modify it manually
+  4. For CSV to JSON conversion:
+     - Parse ALL date formats in the CSV (MM/DD/YY, YYYY-MM-DD, D Mon YYYY, etc.)
+     - Convert column names to required case (snake_case = lowercase with underscores)
+     - Strip whitespace from values
+     - Convert numeric fields to proper types (int, float)
+     - Use json.dumps(data, separators=(',', ':')) for compact JSON (no spaces)
+  5. Test your code logic before submitting
+  6. Submit the EXACT output from your code - do not modify it manually
 
 TIME LIMIT RULES:
 - Each task has a hard 3-minute limit.
