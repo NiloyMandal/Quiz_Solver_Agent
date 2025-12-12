@@ -1,5 +1,4 @@
 from langgraph.graph import StateGraph, END, START
-from langchain_core.rate_limiters import InMemoryRateLimiter
 from langgraph.prebuilt import ToolNode
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from tools import get_rendered_html, download_file, post_request, run_code, add_dependencies, transcribe_audio
@@ -32,12 +31,12 @@ TOOLS = [run_code, get_rendered_html, download_file, post_request, add_dependenc
 
 # Use AI Pipe with OpenRouter
 llm = ChatOpenAI(
-    model="openai/gpt-4o-mini",
+    model="openai/gpt-4o",
     base_url="https://aipipe.org/openrouter/v1",
     api_key=AI_PIPE_TOKEN,
-    temperature=0.7,
+    temperature=0.3,
     max_retries=2,
-    timeout=60
+    timeout=90
 ).bind_tools(TOOLS)   
 
 
@@ -45,13 +44,13 @@ llm = ChatOpenAI(
 # SYSTEM PROMPT
 # -------------------------------------------------
 SYSTEM_PROMPT = f"""
-You are an autonomous quiz-solving agent.
+You are an autonomous quiz-solving agent. You MUST solve tasks and submit answers.
 
 Your job is to:
-1. Load the quiz page from the given URL.
+1. Load the quiz page from the given URL using get_rendered_html.
 2. Extract ALL instructions, required parameters, submission rules, and the submit endpoint.
 3. Solve the task exactly as required.
-4. Submit the answer ONLY to the endpoint specified on the current page (never make up URLs).
+4. Submit the answer using post_request to the endpoint specified on the current page.
 5. Read the server response and:
    - If it contains a new quiz URL → fetch it immediately and continue.
    - If no new URL is present → return "END".
@@ -65,6 +64,8 @@ GENERAL RULES:
 - NEVER re-submit unless the server explicitly allows or it's within the 3-minute limit.
 - ALWAYS inspect the server response before deciding what to do next.
 - ALWAYS use the tools provided to fetch, scrape, download, render HTML, or send requests.
+- DO NOT fetch the same page multiple times - once you have the HTML, solve the task and submit.
+- AFTER using get_rendered_html, IMMEDIATELY solve the task and call post_request to submit.
 
 AUDIO TRANSCRIPTION RULES:
 - If the task mentions "audio", "transcribe", "spoken phrase", or "passphrase":
