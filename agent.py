@@ -69,11 +69,36 @@ GENERAL RULES:
 
 AUDIO TRANSCRIPTION RULES:
 - If the task mentions "audio", "transcribe", "spoken phrase", or "passphrase":
-  1. Look for an audio file link on the page (usually .mp3, .wav, .m4a, .flac)
+  1. Look for an audio file link on the page (usually .mp3, .wav, .m4a, .flac, .opus)
   2. Use the transcribe_audio tool with the audio file URL
   3. Submit the transcribed text EXACTLY as transcribed
   4. NEVER guess audio content - always use the transcribe_audio tool
 - The transcribe_audio tool automatically downloads and transcribes the audio file
+
+IMAGE PROCESSING RULES:
+- If the task involves image analysis (color, pixels, comparison):
+  1. Use download_file to get the image(s)
+  2. Use run_code with Pillow (PIL) to process images:
+     - For color analysis: from PIL import Image; from collections import Counter
+     - For pixel comparison: use numpy to compare pixel arrays
+  3. Example: Find most frequent color - load image, get all pixels, use Counter
+
+PDF PROCESSING RULES:
+- If the task involves PDF files:
+  1. Use download_file to get the PDF
+  2. Use run_code with PyPDF2 or pdfplumber to extract text/data:
+     - import PyPDF2 or import pdfplumber
+     - Extract text from all pages
+     - Parse tables or specific data as needed
+  3. Perform calculations or transformations as specified
+
+ZIP FILE RULES:
+- If the task involves .zip files:
+  1. Use download_file to get the ZIP
+  2. Use run_code with zipfile module (built-in):
+     - import zipfile
+     - Extract and process contents
+     - Handle JSON/CSV files inside the ZIP
 
 DATA PROCESSING RULES:
 - If the task involves CSV, JSON, data transformation, or file processing:
