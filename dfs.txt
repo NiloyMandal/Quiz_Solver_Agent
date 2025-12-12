@@ -1,7 +1,274 @@
-curl -X POST https://niloymondal-quiz-solver-agent.hf.space/solve/
-  -H "Content-Type: application/json" \
-  -d '{
+s
+
+build
+container
+
+
+
+===== Application Startup at 2025-11-29 10:33:08 =====
+
+Downloading speechrecognition (31.3MiB)
+ Downloaded speechrecognition
+Installed 3 packages in 20ms
+INFO:     Started server process [33]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:7860 (Press CTRL+C to quit)
+INFO:     10.16.34.155:38088 - "GET /?logs=container HTTP/1.1" 404 Not Found
+INFO:     10.16.34.155:38088 - "GET /?logs=container HTTP/1.1" 404 Not Found
+Verified starting the task...
+INFO:     10.16.18.114:8014 - "POST /solve HTTP/1.1" 200 OK
+
+Fetching and rendering: https://tds-llm-analysis.s-anand.net/project2
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2",
     "email": "22f1001861@ds.study.iitm.ac.in",
     "secret": "11032003",
-    "url": "https://tds-llm-analysis.s-anand.net/project2"
-  }'
+    "answer": ""
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+HTTP Error Response:
+ {'error': 'Missing field answer'}
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2",
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "answer": "start"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": true,
+    "reason": "",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-uv?email=22f1001861%40ds.study.iitm.ac.in&id=58010",
+    "delay": null
+} 
+
+
+Fetching and rendering: https://tds-llm-analysis.s-anand.net/project2-uv?email=22f1001861%40ds.study.iitm.ac.in&id=58010
+
+Sending Answer 
+{
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-uv",
+    "secret": "11032003",
+    "answer": "uv http get -H \"Accept: application/json\" https://tds-llm-analysis.s-anand.net/project2/uv.json?email=22f1001861@ds.study.iitm.ac.in"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": false,
+    "reason": "Submit the command string: uv http get https://tds-llm-analysis.s-anand.net/project2/uv.json?email=<your email> -H \"Accept: application/json\"",
+    "delay": null
+} 
+
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2-uv",
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "answer": "uv http get https://tds-llm-analysis.s-anand.net/project2/uv.json?email=22f1001861@ds.study.iitm.ac.in -H \"Accept: application/json\""
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": true,
+    "reason": "",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-git?email=22f1001861%40ds.study.iitm.ac.in&id=58083",
+    "delay": null
+} 
+
+
+Fetching and rendering: https://tds-llm-analysis.s-anand.net/project2-git?email=22f1001861%40ds.study.iitm.ac.in&id=58083
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2-git",
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "answer": "git add env.sample\ngit commit -m \"chore: keep env sample\""
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": true,
+    "reason": "",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-md?email=22f1001861%40ds.study.iitm.ac.in&id=58124",
+    "delay": null
+} 
+
+
+Fetching and rendering: https://tds-llm-analysis.s-anand.net/project2-md?email=22f1001861%40ds.study.iitm.ac.in&id=58124
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2-md",
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "answer": "/project2/data-preparation.md"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": true,
+    "reason": "",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-audio-passphrase?email=22f1001861%40ds.study.iitm.ac.in&id=58169",
+    "delay": null
+} 
+
+
+Fetching and rendering: https://tds-llm-analysis.s-anand.net/project2-audio-passphrase?email=22f1001861%40ds.study.iitm.ac.in&id=58169
+
+Downloading audio from: https://tds-llm-analysis.s-anand.net/project2/audio-passphrase.opus
+Audio saved to: LLMFiles/audio.opus
+Google Speech API failed: Your default credentials were not found. To set up Application Default Credentials, see https://cloud.google.com/docs/authentication/external/set-up-adc for more information.
+/app/.venv/lib/python3.12/site-packages/pydub/utils.py:300: SyntaxWarning: invalid escape sequence '\('
+  m = re.match('([su]([0-9]{1,2})p?) \(([0-9]{1,2}) bit\)$', token)
+/app/.venv/lib/python3.12/site-packages/pydub/utils.py:301: SyntaxWarning: invalid escape sequence '\('
+  m2 = re.match('([su]([0-9]{1,2})p?)( \(default\))?$', token)
+/app/.venv/lib/python3.12/site-packages/pydub/utils.py:310: SyntaxWarning: invalid escape sequence '\('
+  elif re.match('(flt)p?( \(default\))?$', token):
+/app/.venv/lib/python3.12/site-packages/pydub/utils.py:314: SyntaxWarning: invalid escape sequence '\('
+  elif re.match('(dbl)p?( \(default\))?$', token):
+Converting audio to WAV format...
+Transcription (Google): hushed parrot 219
+
+Sending Answer 
+{
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-audio-passphrase",
+    "secret": "11032003",
+    "answer": "hushed parrot 219"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": true,
+    "reason": "",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-heatmap?email=22f1001861%40ds.study.iitm.ac.in&id=58283",
+    "delay": null
+} 
+
+
+Fetching and rendering: https://tds-llm-analysis.s-anand.net/project2-heatmap?email=22f1001861%40ds.study.iitm.ac.in&id=58283
+
+Sending Answer 
+{
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-heatmap",
+    "secret": "11032003",
+    "answer": "#b45a1e"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": true,
+    "reason": "",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-csv?email=22f1001861%40ds.study.iitm.ac.in&id=58338",
+    "delay": null
+} 
+
+
+Fetching and rendering: https://tds-llm-analysis.s-anand.net/project2-csv?email=22f1001861%40ds.study.iitm.ac.in&id=58338
+
+Sending Answer 
+{
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-csv",
+    "secret": "11032003",
+    "answer": "[{\"id\": 1, \"name\": \"Alpha\", \"joined\": \"2024-01-30T00:00:00\", \"value\": 5}, {\"id\": 2, \"name\": \"Gamma\", \"joined\": \"2024-02-01T00:00:00\", \"value\": 7}, {\"id\": 3, \"name\": \"Beta\", \"joined\": \"2024-02-01T00:00:00\", \"value\": 10}]"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": false,
+    "reason": "Normalized JSON does not match expected output",
+    "delay": null
+} 
+
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2-csv",
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "answer": "[{\"id\": 1, \"name\": \"Alpha\", \"joined\": \"2024-01-30\", \"value\": 5}, {\"id\": 2, \"name\": \"Gamma\", \"joined\": \"2024-02-01\", \"value\": 7}, {\"id\": 3, \"name\": \"Beta\", \"joined\": \"2024-02-01\", \"value\": 10}]"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": false,
+    "reason": "Normalized JSON does not match expected output",
+    "delay": null
+} 
+
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2-csv",
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "answer": "[{\"id\": 1, \"name\": \"Alpha\", \"joined\": \"2024-01-30T00:00:00\", \"value\": 5}, {\"id\": 2, \"name\": \"Gamma\", \"joined\": \"2024-02-01T00:00:00\", \"value\": 7}, {\"id\": 3, \"name\": \"Beta\", \"joined\": \"2024-02-01T00:00:00\", \"value\": 10}]"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": false,
+    "reason": "Normalized JSON does not match expected output",
+    "delay": null
+} 
+
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2-csv",
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "answer": "[{\"id\":1,\"name\":\"Alpha\",\"joined\":\"2024-01-30\",\"value\":5},{\"id\":2,\"name\":\"Gamma\",\"joined\":\"2024-02-01\",\"value\":7},{\"id\":3,\"name\":\"Beta\",\"joined\":\"2024-02-01\",\"value\":10}]"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": false,
+    "reason": "Normalized JSON does not match expected output",
+    "delay": null
+} 
+
+
+Sending Answer 
+{
+    "url": "https://tds-llm-analysis.s-anand.net/project2-csv",
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "secret": "11032003",
+    "answer": "[{\"id\":1,\"name\":\"Alpha\",\"joined\":\"2024-01-30T00:00:00Z\",\"value\":5},{\"id\":2,\"name\":\"Gamma\",\"joined\":\"2024-02-01T00:00:00Z\",\"value\":7},{\"id\":3,\"name\":\"Beta\",\"joined\":\"2024-02-01T00:00:00Z\",\"value\":10}]"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": false,
+    "reason": "Normalized JSON does not match expected output",
+    "delay": null
+} 
+
+
+Sending Answer 
+{
+    "email": "22f1001861@ds.study.iitm.ac.in",
+    "url": "https://tds-llm-analysis.s-anand.net/project2-csv",
+    "secret": "11032003",
+    "answer": "[{\"id\":1,\"name\":\"Alpha\",\"joined\":\"2024-01-30T00:00:00\",\"value\":5},{\"id\":2,\"name\":\"Gamma\",\"joined\":\"2024-02-01T00:00:00\",\"value\":7},{\"id\":3,\"name\":\"Beta\",\"joined\":\"2024-02-01T00:00:00\",\"value\":10}]"
+}
+ to url: https://tds-llm-analysis.s-anand.net/submit
+Got the response: 
+ {
+    "correct": false,
+    "reason": "Normalized JSON does not match expected output",
+    "delay": null
+} 
+
+Tasks completed succesfully

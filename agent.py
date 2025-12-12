@@ -5,6 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from tools import get_rendered_html, download_file, post_request, run_code, add_dependencies, transcribe_audio
 from typing import TypedDict, Annotated, List, Any
 from langchain.chat_models import init_chat_model
+from langchain_openai import ChatOpenAI
 from langgraph.graph.message import add_messages
 import os
 from dotenv import load_dotenv
@@ -12,6 +13,7 @@ load_dotenv()
 
 EMAIL = os.getenv("EMAIL")
 SECRET = os.getenv("SECRET")
+AI_PIPE_TOKEN = os.getenv("AI_PIPE")
 RECURSION_LIMIT =  5000
 # -------------------------------------------------
 # STATE
@@ -24,17 +26,21 @@ TOOLS = [run_code, get_rendered_html, download_file, post_request, add_dependenc
 
 
 # -------------------------------------------------
-# GEMINI LLM
+# AI PIPE LLM (Using Gemini via OpenRouter)
 # -------------------------------------------------
 rate_limiter = InMemoryRateLimiter(
     requests_per_second=9/60,  
     check_every_n_seconds=1,  
     max_bucket_size=9  
 )
-llm = init_chat_model(
-   model_provider="google_genai",
-   model="gemini-2.5-flash",
-   rate_limiter=rate_limiter
+
+# Use AI Pipe with OpenRouter for Gemini
+llm = ChatOpenAI(
+    model="google/gemini-2.0-flash-exp:free",
+    base_url="https://aipipe.org/openrouter/v1",
+    api_key=AI_PIPE_TOKEN,
+    temperature=0.7,
+    rate_limiter=rate_limiter
 ).bind_tools(TOOLS)   
 
 
