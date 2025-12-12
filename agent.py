@@ -36,10 +36,11 @@ rate_limiter = InMemoryRateLimiter(
 
 # Use AI Pipe with OpenRouter for Gemini
 llm = ChatOpenAI(
-    model="google/gemini-2.0-flash-exp:free",
+    model="google/gemini-flash-1.5",
     base_url="https://aipipe.org/openrouter/v1",
     api_key=AI_PIPE_TOKEN,
     temperature=0.7,
+    max_retries=3,
     rate_limiter=rate_limiter
 ).bind_tools(TOOLS)   
 
