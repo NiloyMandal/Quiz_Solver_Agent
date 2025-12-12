@@ -1,16 +1,72 @@
 # Python-generated files
 __pycache__/
 *.py[oc]
+*.pyo
+*.pyd
+*.so
+*.dll
+*.dylib
 build/
 dist/
 wheels/
 *.egg-info
+*.egg
+.Python
+
+# Environment files
 .env
+.env.local
+*.env
+!.env.example
+
 # Virtual environments
 .venv
-tests
-LLMFiles
+venv/
+ENV/
+env/
+.conda/
+conda-meta/
+
+# Testing
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Project-specific
+LLMFiles/
+runner.py
+*.tmp
+*.temp
 
 # Zone.Identifier files
 *:Zone.Identifier
 *Zone.Identifier
+
+# Lock files (keep uv.lock if using uv, but ignore others)
+poetry.lock
+Pipfile.lock
